@@ -364,6 +364,9 @@
         h("button", { type: "button", class: "btn btn-primary", "data-action": "create-client", text: "クライアントを追加" }),
       ]),
       blocks.length ? blocks : h("p", { class: "empty", text: "クライアントを追加すると、その中に台本を作れます。" }),
+      (location.hostname === "127.0.0.1" || location.hostname === "localhost")
+        ? h("p", { class: "hint", text: "今までの台本を新しいアドレスへ移すには、下の「保存を書き出す」を押してください。そのあと、新しいアドレスで「保存を読み込む」を押します。" })
+        : h("p", { class: "hint", text: "以前のアドレスから書き出したファイルは、「保存を読み込む」でここに戻せます。" }),
       h("div", { class: "row-actions no-print", style: "margin-top:18px" }, [
         h("button", { type: "button", class: "btn", "data-action": "export-bag", text: "保存を書き出す" }),
         h("label", { class: "btn" }, [
